@@ -1,11 +1,6 @@
 import streamlit as st
 
 def calculate_coal_gcv(fixed_carbon, volatile_matter, total_moisture, inherent_moisture, ash_content, sulfur):
-    """
-    Function to calculate the Gross Calorific Value (GCV) of coal
-    based on the composition including Fixed Carbon, Volatile Matter,
-    Total Moisture, Inherent Moisture, Ash Content, and Sulfur content.
-    """
     fixed_carbon_factor = 8080  # kcal/kg
     volatile_matter_factor = 3450  # kcal/kg
     sulfur_factor = 2240  # kcal/kg
@@ -23,11 +18,6 @@ def calculate_coal_gcv(fixed_carbon, volatile_matter, total_moisture, inherent_m
 
 
 def calculate_biomass_gcv(fixed_carbon, volatile_matter, total_moisture, inherent_moisture, ash_content, sulfur):
-    """
-    Function to calculate the Gross Calorific Value (GCV) of biomass
-    based on the composition including Fixed Carbon, Volatile Matter,
-    Total Moisture, Inherent Moisture, Ash Content, and Sulfur content.
-    """
     fixed_carbon_factor = 8000  # kcal/kg
     volatile_matter_factor = 4000  # kcal/kg
     sulfur_factor = 2000  # kcal/kg
