@@ -73,7 +73,7 @@ def main():
 
     # Add a "Developed by" section
     st.markdown("<hr>", unsafe_allow_html=True)
-    st.markdown("<div class='footer'>Developed by [Your Name]</div>", unsafe_allow_html=True)
+    st.markdown("<div class='footer'>Developed by mak3.5</div>", unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
