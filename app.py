@@ -1,9 +1,9 @@
 import streamlit as st
 
 def calculate_coal_gcv(fixed_carbon, volatile_matter, total_moisture, inherent_moisture, ash_content, sulfur):
-    fixed_carbon_factor = 8080  # kcal/kg
-    volatile_matter_factor = 3450  # kcal/kg
-    sulfur_factor = 2240  # kcal/kg
+    fixed_carbon_factor = 9900  # kcal/kg
+    volatile_matter_factor = 3550  # kcal/kg
+    sulfur_factor = 2400  # kcal/kg
     ash_factor = 100  # kcal/kg
 
     dry_gcv = ((fixed_carbon / 100 * fixed_carbon_factor) +
@@ -18,8 +18,8 @@ def calculate_coal_gcv(fixed_carbon, volatile_matter, total_moisture, inherent_m
 
 
 def calculate_biomass_gcv(fixed_carbon, volatile_matter, total_moisture, inherent_moisture, ash_content, sulfur):
-    fixed_carbon_factor = 8000  # kcal/kg
-    volatile_matter_factor = 4000  # kcal/kg
+    fixed_carbon_factor = 7500  # kcal/kg
+    volatile_matter_factor = 3500  # kcal/kg
     sulfur_factor = 2000  # kcal/kg
     ash_factor = 100  # kcal/kg
 
