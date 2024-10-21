@@ -16,7 +16,6 @@ def calculate_coal_gcv(fixed_carbon, volatile_matter, total_moisture, inherent_m
 
     return gcv
 
-
 def calculate_biomass_gcv(fixed_carbon, volatile_matter, total_moisture, inherent_moisture, ash_content, sulfur):
     fixed_carbon_factor = 7500  # kcal/kg
     volatile_matter_factor = 3500  # kcal/kg
@@ -33,9 +32,27 @@ def calculate_biomass_gcv(fixed_carbon, volatile_matter, total_moisture, inheren
 
     return gcv_total_adjusted
 
-
 def main():
     st.title("GCV Calculator for Coal and Biomass")
+
+    # Add some styling
+    st.markdown(
+        """
+        <style>
+        .main {
+            background-color: #f0f0f0;
+        }
+        .stButton > button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .footer {
+            font-size: 14px;
+            color: gray;
+        }
+        </style>
+        """, unsafe_allow_html=True
+    )
 
     fuel_type = st.selectbox("Select the type of fuel:", ("Coal", "Biomass"))
 
@@ -54,6 +71,9 @@ def main():
             gcv = calculate_biomass_gcv(fixed_carbon, volatile_matter, total_moisture, inherent_moisture, ash_content, sulfur)
             st.success(f"The Gross Calorific Value (GCV) of biomass is: {gcv:.2f} kcal/kg")
 
+    # Add a "Developed by" section
+    st.markdown("<hr>", unsafe_allow_html=True)
+    st.markdown("<div class='footer'>Developed by [Your Name]</div>", unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
