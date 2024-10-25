@@ -32,8 +32,13 @@ def calculate_biomass_gcv(fixed_carbon, volatile_matter, total_moisture, inheren
 
     return gcv_total_adjusted
 
+def calculate_ncv(gcv, total_moisture, hydrogen_content):
+    # NCV formula: NCV = GCV - (0.212 * H * (Water + 9 * H))
+    ncv = gcv - (0.212 * hydrogen_content * (total_moisture + 9 * hydrogen_content))
+    return ncv
+
 def main():
-    st.title("GCV Calculator for Coal and Biomass")
+    st.title("GCV and NCV Calculator for Coal and Biomass")
 
     # Add some styling
     st.markdown(
@@ -62,14 +67,19 @@ def main():
     inherent_moisture = st.number_input("Inherent Moisture (%)", min_value=0.0, max_value=100.0)
     ash_content = st.number_input("Ash Content (%)", min_value=0.0, max_value=100.0)
     sulfur = st.number_input("Sulfur (%)", min_value=0.0, max_value=100.0)
+    hydrogen_content = st.number_input("Hydrogen Content (%)", min_value=0.0, max_value=100.0)
 
-    if st.button("Calculate GCV"):
+    if st.button("Calculate GCV and NCV"):
         if fuel_type == "Coal":
             gcv = calculate_coal_gcv(fixed_carbon, volatile_matter, total_moisture, inherent_moisture, ash_content, sulfur)
+            ncv = calculate_ncv(gcv, total_moisture, hydrogen_content)
             st.success(f"The Gross Calorific Value (GCV) of coal is: {gcv:.2f} kcal/kg")
+            st.success(f"The Net Calorific Value (NCV) of coal is: {ncv:.2f} kcal/kg")
         elif fuel_type == "Biomass":
             gcv = calculate_biomass_gcv(fixed_carbon, volatile_matter, total_moisture, inherent_moisture, ash_content, sulfur)
+            ncv = calculate_ncv(gcv, total_moisture, hydrogen_content)
             st.success(f"The Gross Calorific Value (GCV) of biomass is: {gcv:.2f} kcal/kg")
+            st.success(f"The Net Calorific Value (NCV) of biomass is: {ncv:.2f} kcal/kg")
 
     # Add a "Developed by" section
     st.markdown("<hr>", unsafe_allow_html=True)
