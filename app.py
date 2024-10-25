@@ -17,9 +17,9 @@ def calculate_coal_gcv(fixed_carbon, volatile_matter, total_moisture, inherent_m
     return gcv
 
 def calculate_biomass_gcv(fixed_carbon, volatile_matter, total_moisture, inherent_moisture, ash_content, sulfur):
-    fixed_carbon_factor = 7500  # kcal/kg
-    volatile_matter_factor = 3500  # kcal/kg
-    sulfur_factor = 2000  # kcal/kg
+    fixed_carbon_factor = 8500  # kcal/kg
+    volatile_matter_factor = 4500  # kcal/kg
+    sulfur_factor = 2500  # kcal/kg
     ash_factor = 100  # kcal/kg
 
     dry_gcv = ((fixed_carbon / 100 * fixed_carbon_factor) +
